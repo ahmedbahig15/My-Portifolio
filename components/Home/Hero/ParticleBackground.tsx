@@ -1,25 +1,28 @@
 "use client";
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
+import { useMemo } from "react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+
+const particlesInit = async (engine: any) => {
+  await loadSlim(engine);
+};
 
 const ParticleBackground = () => {
-  const particlesInit = useCallback(async (engine: any) => {
-    await loadSlim(engine);
-  }, []);
+  const options = useMemo(
+    () => ({
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: { value: 50 },
+        move: { enable: true, speed: 1.5 },
+      },
+    }),
+    []
+  );
 
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={{
-        background: { color: { value: "transparent" } },
-        particles: {
-          number: { value: 50 },
-          move: { enable: true, speed: 1.5 },
-        },
-      }}
-    />
+    <ParticlesProvider init={particlesInit}>
+      <Particles id="tsparticles" options={options} />
+    </ParticlesProvider>
   );
 };
 
