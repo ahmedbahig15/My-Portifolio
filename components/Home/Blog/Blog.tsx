@@ -13,7 +13,7 @@ const Blog = () => {
         data-aos-delay= "0"
         >
             <BlogCard image="/images/b1.jpg" 
-            title="learn how to build an amazing portifolio website using nest js"
+            title="learn how to build an amazing portifolio website using next js"
             />
         </div>
         <div
@@ -22,7 +22,7 @@ const Blog = () => {
         data-aos-delay= "100"
         >
             <BlogCard image="/images/b2.jpg" 
-            title="learn how to build an amazing Blog website using nest js"
+            title="learn how to build an amazing Blog website using next js"
             />
         </div>
         <div
